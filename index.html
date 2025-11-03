@@ -3,31 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>L’Oréal Smart Product Advisor</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <div class="brand-bar"></div>
+
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <!-- Header / Branding -->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <div class="brand-lockup">
+          <img src="loreal.png" alt="L'Oréal" class="brand-logo" />
+          <div class="brand-text">
+            <h1 class="site-title">L’Oréal Smart Product Advisor</h1>
+            <p class="site-subtitle">Ask about L’Oréal products, routines, and recommendations.</p>
+          </div>
+        </div>
       </header>
 
-      <!------- Chat Area ------->
+      <!-- Chat Area -->
       <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+        <section class="chatbox card">
+          <div class="card-title">
+            <span class="dot"></span> Chat
           </div>
+
+          <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+          <!-- Requirement: show last question above response -->
+          <div id="lastQuestion" class="last-question" aria-live="polite"></div>
 
           <form id="chatForm" class="chat-form">
             <label for="userInput" class="visually-hidden">Message</label>
@@ -35,11 +42,11 @@
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
+              placeholder="Ask about L’Oréal products or routines…"
               autocomplete="off"
               required
             />
-            <button type="submit" id="sendBtn">
+            <button type="submit" id="sendBtn" title="Send" class="btn">
               <span class="material-icons">send</span>
               <span class="visually-hidden">Send</span>
             </button>
@@ -47,20 +54,17 @@
         </section>
       </main>
 
-      <!------- Footer Links ------->
+      <!-- Footer -->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2025 L’Oréal (student project). This demo answers only L’Oréal-related questions.</p>
         <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
           <a href="#">Contact</a>
         </nav>
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
